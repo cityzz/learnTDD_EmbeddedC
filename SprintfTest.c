@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <string.h>
+#include "unity.h"
+#include "unity_fixture.h"
+
 TEST_GROUP(sprintf);
 
 static char output[100];

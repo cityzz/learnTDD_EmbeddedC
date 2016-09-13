@@ -1,17 +1,18 @@
-INC=-I../../allinone
+INC=-I../../src -I../../extras/fixture/src
 LIB=
 LIBS=
 
 CC=gcc
-CFLAGS=$(INC) -fPIC -g
-LDFLAGS=-Wl,-rpath=./ -Os -Wall -Wl,--gc-sections
-SRCS=../../allinone/unity.c ../../allinone/unity_fixture.c ./SprintfTest.c ./SprintfTestRunner.c
-OBJS=$(SRCS:.c=.o)
+CFLAGS=-std=c99 -DUNITY_FIXTURES
+LDFLAGS=
+SRCS=../../src/unity.c ../../extras/fixture/src/unity_fixture.c SprintfTest.c SprintfTestRunner.c AllTests.c
+TARGET = AllTests
 
-AllTests: AllTests.o $(OBJS)
-		$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^ $(LIB) $(LIBS)
+AllTests:
+		$(CC)  $(CFLAGS) $(INC) $(LDFLAGS) $(SRCS) -o $(TARGET)
+		./$(TARGET) -v
 
 all: AllTests
 
 clean:
-		rm -f sprintfTest *.o $(OBJS)
+		rm -f $(TARGET) *.o
