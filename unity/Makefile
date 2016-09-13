@@ -1,4 +1,4 @@
-UNITY_DIR=../allinone
+UNITY_DIR=../../allinone
 INC=-I$(UNITY_DIR)
 LIB=
 LIBS=
@@ -13,7 +13,7 @@ AllTests:
 		$(CC)  $(CFLAGS) $(INC) $(LDFLAGS) $(SRCS) -o $(TARGET)
 		./$(TARGET) -v
 
-all: AllTests
+all: clean AllTests
 
 clean:
 		rm -f $(TARGET) *.o
