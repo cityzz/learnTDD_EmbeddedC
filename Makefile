@@ -1,11 +1,12 @@
-INC=-I../../src -I../../extras/fixture/src
+UNITY_DIR=../allinone
+INC=-I$(UNITY_DIR)
 LIB=
 LIBS=
 
 CC=gcc
 CFLAGS=-std=c99 -DUNITY_FIXTURES
 LDFLAGS=
-SRCS=../../src/unity.c ../../extras/fixture/src/unity_fixture.c SprintfTest.c SprintfTestRunner.c AllTests.c
+SRCS=$(UNITY_DIR)/unity.c $(UNITY_DIR)/unity_fixture.c SprintfTest.c SprintfTestRunner.c AllTests.c
 TARGET = AllTests
 
 AllTests:
