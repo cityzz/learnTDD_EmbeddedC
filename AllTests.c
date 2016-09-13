@@ -1,8 +1,11 @@
 #include "unity_fixture.h"
 
-
-TEST_GROUP_RUNNER(sprintf)
+static void RunAllTests(void)
 {
-    RUN_TEST_CASE(sprintf, NoFormatOperations);
-    RUN_TEST_CASE(sprintf, InsertString);
+    RUN_TEST_GROUP(sprintf);
+}
+
+int main(int argc, char * argv[])
+{
+    return UnityMain(argc, argv, RunAlltests);
 }
