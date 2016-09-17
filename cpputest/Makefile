@@ -4,14 +4,12 @@ LIB=-lCppUTest -lCppUTestExt
 LIBS=-L$(CPPUTEST_DIR)/lib
 
 CC=g++
-CFLAGS=-g -Wall
-# CFLAGS += -include $(CPPUTEST_DIR)/include/CppUTest/MemoryLeakDetectorMallocMacros.h
-# CFLAGS += -include $(CPPUTEST_DIR)/include/CppUTest/CommandLineTestRunner.h
+CFLAGS=-g -Wall -std=c++1y
+CFLAGS += -include $(CPPUTEST_DIR)/include/CppUTest/MemoryLeakDetectorMallocMacros.h
 
 LDFLAGS=-L$(CPPUTEST_DIR)/lib -lCppUTest -static
-OBJ = SprintfTest.o Alltests.o
 
-SRCS = $(OBJ:%.o=%.cpp)
+SRCS = SprintfTest.cpp Alltests.cpp
 TARGET=AllTests
 
 all: clean AllTests
